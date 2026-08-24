@@ -133,7 +133,7 @@ end
         QuadraticPotential(masses_code), first_row.B, 1.0, ["phi", "psi"],
     )
     field = zeros(Float64, n, n, n, 2)
-    prime = similar(field)
+    prime = zeros(Float64, n, n, n, 2)
     fill!(@view(field[:, :, :, 1]), first_row.phi)
     fill!(@view(field[:, :, :, 2]), first_row.psi)
     state = SimulationState(
