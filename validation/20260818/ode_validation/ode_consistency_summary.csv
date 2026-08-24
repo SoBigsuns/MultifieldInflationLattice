@@ -1,0 +1,13 @@
+check,kind,value,tolerance,passed,note
+rho = kinetic + gradient + potential,hard,6.191210061719908e-16,5e-12,True,energies.csv 内のエネルギー恒等式
+background rho = energies rho_total,hard,0.0,5e-12,True,background.csv と energies.csv の整合性
+p = K - G/3 - V,hard,6.552397797112234e-16,5e-12,True,圧力の定義
+Hdot = -K - G/3,hard,8.893699761245953e-14,5e-12,True,Friedmann 第2式（換算プランク質量=1）
+w = p/rho,hard,5.627152454715275e-16,5e-12,True,状態方程式パラメータの定義
+H^2 = rho/3,hard,0.00019858045671919893,0.001,True,config.effective.toml の friedmann_error_tolerance を使用
+csv-driven field mean ODE,hard,2.385865187994473e-07,0.0005,True,各平均場の正規化RMS誤差の最大値。二次ポテンシャル＋周期境界で成立
+csv-driven field velocity ODE,hard,3.239107056632896e-05,0.005,True,各平均速度の正規化RMS誤差の最大値
+homogeneous field mean comparison,diagnostic,2.635843409830634e-05,,,ゆらぎ・勾配エネルギーを除いた近似なので合否判定には使わない
+homogeneous field velocity comparison,diagnostic,4.841860769565937e-05,,,ゆらぎ・勾配エネルギーを除いた近似なので合否判定には使わない
+homogeneous H comparison,diagnostic,6.590293370255593e-05,,,格子の全エネルギーと平均場だけのエネルギーの差を含む
+recomputed vs recorded Friedmann residual,diagnostic,3.9426368898944986e-08,,,diagnostics.csv がある場合の最大絶対差

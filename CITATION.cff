@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use MultifieldInflationLattice in published work, please cite this software and the InflationEasy reference described in the README."
+title: "MultifieldInflationLattice"
+type: software
+version: 0.1.0
+date-released: 2026-08-18
+license: MIT
+authors:
+  - name: "MultifieldInflationLattice contributors"
+keywords:
+  - inflation
+  - lattice simulation
+  - scalar fields
+  - delta N
+  - Julia
+references:
+  - type: software
+    title: "InflationEasy"
+    repository-code: "https://github.com/caravangelo/inflation-easy"
+    version: "commit d4f0cfdde0d148fa8ffaa14fe37d705cd79b2366"
+  - type: article
+    title: "InflationEasy"
+    doi: "10.48550/arXiv.2506.11797"

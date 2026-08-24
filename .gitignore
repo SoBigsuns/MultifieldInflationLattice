@@ -1,0 +1,55 @@
+# Simulation outputs and local Julia state
+/runs/
+/.julia/
+
+# Python virtual environments and caches
+/.venv/
+/venv/
+/env/
+/myenv/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+/Untitled.before-fluctuation.ipynb
+
+# Generated validation time series (reproducible from the scripts)
+/validation/20260818/data/analytic_comparison_timeseries.csv
+/validation/20260818/data/analytic_slowroll_curve.csv
+/validation/20260818/data/parseval_variance_check.csv
+/validation/20260818/ode_validation/ode_consistency_timeseries.csv
+
+# LaTeX build intermediates
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Temporary/profiling files
+*.tmp
+*.bak
+*.cov
+*.mem

@@ -1,0 +1,66 @@
+[model]
+field_names = ["phi", "psi"]
+potential = "quadratic"
+masses = [9.0e-6, 1.0e-6]
+reduced_planck_mass = 1.0
+rescale_B = "auto"
+
+[lattice]
+size = 32
+box_size = 2.0
+boundary = "periodic"
+laplacian = "second_order_7point"
+
+[initial]
+field_means = [13.0, 13.0]
+cosmic_velocities = [1.0e-10, 0.0]
+scale_factor = 1.0
+seed = 8
+vacuum_fluctuations = true
+include_effective_mass = false
+low_cutoff_index = 0.0
+high_cutoff_index = 0.0
+
+[evolution]
+integrator = "leapfrog"
+timestep_factor = 0.01
+end_epsilon_H = 1.0
+max_efolds = 100.0
+max_steps = 100000000
+max_wall_time = 0.0
+friedmann_warning_tolerance = 1.0e-6
+friedmann_error_tolerance = 1.0e-3
+
+[deltaN]
+enabled = true
+integrator = "leapfrog"
+reference_surface = "uniform_density_at_end"
+dN = 1.0e-4
+max_extra_efolds = 10.0
+max_backward_efolds = 1.0
+separate_universe_min_ratio = 1.0
+strict_separate_universe = false
+
+[spectra]
+enabled = true
+use_lattice_momentum = true
+linear_zeta_min_speed2 = 1.0e-30
+
+[output]
+root = "runs"
+run_name = "two_field_quadratic"
+background_interval_efolds = 0.01
+spectra_interval_efolds = 0.01
+histogram_interval_efolds = 0.01
+checkpoint_interval_efolds = 0.5
+histogram_bins = 256
+save_2d_slices = true
+slice_axis = "z"
+slice_index = 16
+save_3d_snapshots = false
+overwrite = false
+
+[parallel]
+backend = "cpu_threads"
+fft_threads = 1
+deterministic_reductions = false

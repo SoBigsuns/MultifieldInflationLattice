@@ -1,0 +1,63 @@
+[source]
+name = "InflationEasy"
+repository = "https://github.com/caravangelo/inflation-easy"
+commit = "d4f0cfdde0d148fa8ffaa14fe37d705cd79b2366"
+archive_kind = "official Git source archive"
+
+[source.sha256]
+"README.md" = "e9aeeab61206e0a201900010061cdcf2905de74d56031d3b8c1d8910af3e30d7"
+"src/evolution.cpp" = "cf11acd623508efbffba8b1b4274a17d373e043dbbb9ed1ecc49b4463a742654"
+"src/initialize.cpp" = "a12463a0cd0b2cf9259356858c89a44ccfea87a5a264f7e537a8d9d41d45c870"
+"src/output.cpp" = "2f3adf93dcc894ae0ac95017739722cf310b57b250b0b41002b149a63e63ebe3"
+"src/parameters.h" = "1abe17724dba56dbbc3d97fc148c99a4125248fdec6d6798d1b03f82e268c020"
+"src/potential.cpp" = "593cdc6860857f40d5067ef77bac5bc95479a2c5f3389cf091de019266a7e7ba"
+
+[generation]
+script = "generate_reference_fixtures.py"
+python_dependencies = "standard library only"
+integrator = "adaptive Dormand-Prince 5(4), independently implemented"
+relative_tolerance = 2.0e-13
+absolute_tolerance = 2.0e-15
+
+[notion_reference]
+title = "§6. 4次 Runge—Kutta による常微分方程式解法"
+url = "https://pie-supply-358.notion.site/6-4-Runge-Kutta-c969f1759b8b4d9a894506418c6dda7f"
+page_id = "c969f175-9b8b-4d9a-8945-06418c6dda7f"
+api_snapshot_sha256 = "ca316ff18928704086794f4036d882892bae701be0e0f1b0ff43df2d55746302"
+retrieved_on = "2026-08-18"
+potential_hubble_epsilon_block = "75c6bb08-7515-4611-8450-dc8bbc943ab4"
+equations_of_motion_block = "3be8a0ee-a9c3-4618-ac5f-6fdd1a4f94a6"
+background_main_block = "4c60f7c1-dfa4-4bf9-ba16-1d4fad7f2cca"
+perturbation_initialization_block = "c76af06a-d424-4497-a42e-ea52e171d918"
+perturbation_timestep_block = "c48e810f-7d33-4c0d-b7d1-c9a32ab333d5"
+
+[notion_background]
+fixture = "notion_background_rk4.csv"
+source_contract = "page classical RK4 with phi=psi=13, zero background velocities, and dt=0.01/H"
+comparison_relative_tolerance = 2.0e-8
+comparison_absolute_tolerance = 2.0e-10
+
+[single_field]
+fixture = "single_field_background.csv"
+source_contract = "InflationEasy homogeneous RHS at rescale_s=0 with quadratic custom-potential specialization"
+B = 0.25
+mass_physical = 0.075
+mass_code = 0.3
+
+[single_field_conventions]
+fixture = "single_field_conventions.csv"
+source_contract = "InflationEasy internal energy and r2c shell normalization"
+B = 0.25
+lattice_size = 8
+box_size_code = 2.0
+
+[two_field]
+fixture = "two_field_background.csv"
+source_contract = "independent canonical homogeneous Klein-Gordon plus Einstein acceleration equations"
+configuration_contract = "configs/two_field_quadratic.toml and supplied NFR-COR-03 acceptance example"
+rescale_B = "auto = sqrt(V(initial means))"
+B = 8.324061508662703e-5
+field_means = [13.0, 13.0]
+cosmic_velocities_physical = [1.0e-10, 0.0]
+masses_physical = [9.0e-6, 1.0e-6]
+masses_code = [0.1081202966921119, 0.012013366299123545]

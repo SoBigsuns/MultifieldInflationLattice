@@ -1,0 +1,36 @@
+{
+  "generated_at_utc": "2026-08-23T23:05:40.875235+00:00",
+  "run_directory": "C:\\Users\\sodai_zszukni\\Documents\\MultifieldInflationLattice\\runs\\two_field_quadratic_20260818T205254Z_6c5330a9ab54",
+  "overall_hard_checks_passed": true,
+  "equations": {
+    "homogeneous": "dphi/dt=v; dv/dt=-3Hv-m^2 phi; dN/dt=H; H^2=(sum(v^2)+sum(m^2 phi^2))/6",
+    "csv_driven": "dphi_bar/dt=v_bar; dv_bar/dt=-3 H_csv(t) v_bar-m^2 phi_bar"
+  },
+  "assumptions": [
+    "reduced Planck mass is 1",
+    "quadratic potential",
+    "csv-driven mean equation uses periodic-boundary cancellation of the mean Laplacian",
+    "homogeneous comparison intentionally omits fluctuation and gradient energy"
+  ],
+  "integrator": {
+    "name": "independent adaptive Dormand-Prince 5(4)",
+    "rtol": 2e-10,
+    "field_atol": 1e-12,
+    "velocity_atol": 9e-18,
+    "homogeneous": {
+      "accepted_steps": 8602,
+      "rejected_steps": 1,
+      "function_evaluations": 60221
+    },
+    "csv_driven": {
+      "accepted_steps": 8598,
+      "rejected_steps": 1,
+      "function_evaluations": 60193
+    }
+  },
+  "outputs": {
+    "timeseries_csv": "C:\\Users\\sodai_zszukni\\Documents\\Codex\\2026-08-18\\new-chat-2\\outputs\\double_chaotic_validation_20260818\\ode_validation\\ode_consistency_timeseries.csv",
+    "summary_csv": "C:\\Users\\sodai_zszukni\\Documents\\Codex\\2026-08-18\\new-chat-2\\outputs\\double_chaotic_validation_20260818\\ode_validation\\ode_consistency_summary.csv",
+    "figure_png": "C:\\Users\\sodai_zszukni\\Documents\\Codex\\2026-08-18\\new-chat-2\\outputs\\double_chaotic_validation_20260818\\ode_validation\\ode_consistency.png"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "generated_at_utc": "2026-08-23T23:05:40.879141+00:00",
+  "run": {
+    "id": "two_field_quadratic_20260818T205254Z_6c5330a9ab54",
+    "directory": "C:\\Users\\sodai_zszukni\\Documents\\MultifieldInflationLattice\\runs\\two_field_quadratic_20260818T205254Z_6c5330a9ab54",
+    "total_efolds": 86.09179470185393,
+    "initial_H": 4.808503713374224e-05,
+    "initial_w": -0.9985559177858696,
+    "final_w": -0.3330095257704497,
+    "final_epsilon_H": 1.0004855184634431,
+    "dominance_transition_efolds": 44.8608080138357,
+    "rows": 8593
+  },
+  "model": {
+    "potential": "quadratic",
+    "field_names": [
+      "phi",
+      "psi"
+    ],
+    "masses": [
+      9e-06,
+      1e-06
+    ],
+    "initial_means": [
+      13.000000000000068,
+      13.000000000000082
+    ],
+    "mass_squared_ratio": 81.0,
+    "lattice_size": 32,
+    "box_size": 2.0,
+    "seed": 8,
+    "timestep_factor": 0.01
+  },
+  "analytic": {
+    "description": "two-field quadratic slow-roll parametric approximation",
+    "total_efolds": 84.00000000000097,
+    "total_efolds_relative_difference": 0.02490231787920164,
+    "initial_H": 4.805899152777439e-05,
+    "initial_H_relative_difference": 0.0005419507388705483,
+    "dominance_transition_efolds": 44.014510852670895,
+    "dominance_transition_relative_difference": 0.01922768525129368,
+    "phi_normalized_rms": 0.014097206311366165,
+    "psi_normalized_rms": 0.020186942716076732,
+    "H_parametric_normalized_rms": 0.017958422174129934,
+    "H_from_means_normalized_rms": 0.004162446809242854,
+    "comparison_efolds_min": 1.0002491920892451,
+    "comparison_efolds_max": 81.27003710994725
+  },
+  "constraints": {
+    "friedmann_maximum": 0.00019854103035071437,
+    "friedmann_configured_tolerance": 0.001,
+    "rho_identity_maximum": 6.191210061719911e-16,
+    "pressure_identity_maximum": 6.552397797112238e-16,
+    "epsilon_H_vs_Hdot_maximum": 5.0256478821553897e-14,
+    "epsilon_H_vs_w_maximum_absolute": 3.283912903936925e-05
+  },
+  "energy": {
+    "initial_potential_fraction": 0.9989169813838411,
+    "initial_kinetic_fraction": 0.0005415523525183606,
+    "initial_gradient_fraction": 0.0005414662636404679,
+    "gradient_fraction_maximum_slowroll": 1.0059084318928545e-05,
+    "inhomogeneous_energy_fraction_maximum_slowroll": 2.0100235734670642e-05
+  },
+  "spectra": {
+    "bunch_davies": {
+      "phi": {
+        "mode_weighted_power_ratio": 0.9969265241795325,
+        "median_power_ratio": 0.9906428749516094,
+        "fraction_within_3sigma": 1.0,
+        "maximum_abs_z": 2.321041449688062
+      },
+      "psi": {
+        "mode_weighted_power_ratio": 1.0078206353084005,
+        "median_power_ratio": 1.0007963116503042,
+        "fraction_within_3sigma": 1.0,
+        "maximum_abs_z": 2.890732665814903
+      }
+    },
+    "horizon_exit_light_field": {
+      "field": "psi",
+      "evaluation_efolds": 9.998374072243324,
+      "well_populated_minimum_modes": 50,
+      "well_populated_bins": 24,
+      "mean_power_ratio": 1.004107309119022,
+      "median_power_ratio": 0.9946749887102719,
+      "percentile_16": 0.9721725781435987,
+      "percentile_84": 1.0335312002579067,
+      "minimum_crossing_efolds": 1.9533101869236877,
+      "maximum_crossing_efolds": 4.613984346071276
+    },
+    "parseval": {
+      "phi": {
+        "peak_normalized_max_abs_difference": 1.5881417342531203e-05,
+        "peak_variance": 4.00226696228856e-07
+      },
+      "psi": {
+        "peak_normalized_max_abs_difference": 1.5549135705162514e-05,
+        "peak_variance": 4.052263591347583e-07
+      }
+    }
+  },
+  "ode": {
+    "available": true,
+    "validator": "C:\\Users\\sodai_zszukni\\Documents\\Codex\\2026-08-18\\new-chat-2\\outputs\\double_chaotic_validation_20260818\\validate_background_ode.py",
+    "overall_hard_checks_passed": true,
+    "summary_csv": "C:\\Users\\sodai_zszukni\\Documents\\Codex\\2026-08-18\\new-chat-2\\outputs\\double_chaotic_validation_20260818\\ode_validation\\ode_consistency_summary.csv",
+    "figure": "C:\\Users\\sodai_zszukni\\Documents\\Codex\\2026-08-18\\new-chat-2\\outputs\\double_chaotic_validation_20260818\\ode_validation\\ode_consistency.png",
+    "rows": 8593
+  },
+  "ode_metrics": {
+    "csv_driven_field_mean_ode": 2.385865187994473e-07,
+    "csv_driven_field_velocity_ode": 3.239107056632896e-05,
+    "homogeneous_H_comparison": 6.590293370255593e-05
+  },
+  "scope": {
+    "validated": [
+      "background two-field dynamics",
+      "Friedmann and stress-energy consistency",
+      "slow-roll qualitative and quantitative behaviour",
+      "vacuum spectrum initialization",
+      "field-spectrum FFT normalization"
+    ],
+    "not_established": [
+      "continuum or infinite-volume limit",
+      "time-step and spatial-resolution convergence",
+      "ensemble uncertainty over random seeds",
+      "independent validation of linear-curvature and delta-N spectra"
+    ]
+  },
+  "overall_selected_checks_passed": true,
+  "figures": [
+    "C:\\Users\\sodai_zszukni\\Documents\\Codex\\2026-08-18\\new-chat-2\\outputs\\double_chaotic_validation_20260818\\figures\\background_vs_analytic.png",
+    "C:\\Users\\sodai_zszukni\\Documents\\Codex\\2026-08-18\\new-chat-2\\outputs\\double_chaotic_validation_20260818\\figures\\energy_and_constraints.png",
+    "C:\\Users\\sodai_zszukni\\Documents\\Codex\\2026-08-18\\new-chat-2\\outputs\\double_chaotic_validation_20260818\\figures\\fluctuation_spectrum_checks.png"
+  ]
+}

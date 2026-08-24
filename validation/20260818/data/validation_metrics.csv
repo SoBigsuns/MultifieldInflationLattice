@@ -1,0 +1,18 @@
+metric,category,value,tolerance,passed,interpretation
+Initial H vs slow-roll,analytic,0.0005419507388705483,0.01,True,初期Hが平均場ポテンシャル予測と1%以内
+Total e-folds vs slow-roll,analytic,0.02490231787920164,0.05,True,slow-roll終了予測と5%以内
+Dominance transition,analytic,0.01922768525129368,0.1,True,重い場から軽い場への交代時刻が10%以内
+Parametric H normalized RMS,analytic,0.017958422174129934,0.05,True,slow-roll比較区間のH
+phi normalized RMS,analytic,0.014097206311366165,0.05,True,slow-roll比較区間の重い場
+psi normalized RMS,analytic,0.020186942716076732,0.05,True,slow-roll比較区間の軽い場
+Friedmann constraint,internal,0.00019854103035071437,0.001,True,run設定の許容値
+Energy decomposition,internal,6.191210061719911e-16,5e-12,True,rho=K+G+V
+Pressure decomposition,internal,6.552397797112238e-16,5e-12,True,p=K-G/3-V
+Gradient fraction in slow-roll,lattice,1.0059084318928545e-05,0.01,True,背景比較が不均一勾配に支配されていない
+BD phi weighted power,spectrum,0.003073475820467464,0.1,True,単一実現のmode-weighted期待値
+BD psi weighted power,spectrum,0.007820635308400492,0.1,True,単一実現のmode-weighted期待値
+Light-field horizon-exit spectrum,spectrum,0.004107309119022018,0.1,True,n_modes>=50でP_delta_psi=(H*/2pi)^2
+Parseval phi,spectrum,1.5881417342531203e-05,0.001,True,スペクトル和と実空間分散
+Parseval psi,spectrum,1.5549135705162514e-05,0.001,True,スペクトル和と実空間分散
+Independent ODE field means,ode,2.385865187994473e-07,0.0005,True,CSV Hで駆動した独立DOPRI5(4)
+Independent ODE velocities,ode,3.239107056632896e-05,0.005,True,CSV Hで駆動した独立DOPRI5(4)
