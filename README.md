@@ -5,13 +5,6 @@
 背景量・エネルギー・スローロール量・場の自己/クロススペクトル・格子配位からの
 線形曲率推定量・一様密度面への非摂動的 `delta N` を出力します。
 
-物理・数値仕様は
-[InflationEasy](https://github.com/caravangelo/inflation-easy) の commit
-`d4f0cfdde0d148fa8ffaa14fe37d705cd79b2366` を基準に、多場化、Julia CPU
-スレッド、交換可能なポテンシャル/積分器、ヘッダ付き CSV、完全チェックポイントを
-追加したものです。独立した線形モード方程式、計量摂動、GPU、分散メモリ並列は
-この版の対象外です。
-
 ## 必要環境
 
 - 64-bit Julia（対応版は `Project.toml` の `[compat]` を参照）
