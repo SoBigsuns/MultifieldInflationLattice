@@ -138,6 +138,50 @@ long 行とメタデータに保持します。未定義値は空欄や 0 で偽
 再適用し、receipt と checkpoint 状態が同じ step の直後1件である場合だけ進行状態を復元します。
 欠落、部分行、改変、複数観測分の先行が一つでもあれば、自動追記や自動切り詰めをせず終了します。
 
+## 図の作成
+
+run ディレクトリの CSV から、背景量と揺らぎの図を一通り描きます。描画は別環境
+[`plotting/`](plotting)（`MFILPlots`、Plots.jl/GR）で行い、本体パッケージには描画依存を
+追加しません。本体を読み込まないため、別の計算機からコピーした run ディレクトリにも使えます。
+
+```sh
+# 初回だけ
+julia --project=plotting -e "using Pkg; Pkg.instantiate()"
+
+julia --project=plotting bin/plot.jl --input runs/<run-id>
+julia --project=plotting bin/plot.jl --input runs/<run-id> --format pdf --times 0,5,10 --output figs
+```
+
+既定の出力先は `runs/<run-id>/figures/` です。`--times` には時間ごとの曲線を描く e-fold を
+カンマ区切りで指定し、最も近い出力を使います。省略時は `--max-curves`（既定 6）個の出力を
+e-fold 等間隔で選びます。`--format` は `png`、`pdf`、`svg` です。
+
+`background/`
+
+| ファイル | 内容 |
+|---|---|
+| `background_overview` | 場の平均、`H`、`ε_H=-Ḣ/H²` と `ε_V`、`w`、エネルギーの内訳（運動/勾配/ポテンシャル）、Friedmann 残差と CFL 比 |
+| `field_trajectory` | 場空間の軌道（場の組ごと、色は N）。1 場では位相図 |
+| `slowroll` | `ε_H` と場ごとの寄与、`η_∥`、軌道の曲がり `Ω/H`、`V_IJ/V` の固有値 |
+| `field_variances` | 場の分散と、場ごとの運動・勾配エネルギー |
+
+`fluctuations/`
+
+| ファイル | 内容 |
+|---|---|
+| `field_spectra` | 場の自己スペクトル `P_I(k)` を、共動 `k` と `k/(aH)` の両方に対して描いたもの |
+| `field_spectra_evolution` | 代表的な `k` 殻の `P_I` の時間発展。点線はホライズン横断 `k=aH` |
+| `field_cross_correlation` | 相関係数 `r_IJ=P_IJ/√(P_II P_JJ)`（2 場以上） |
+| `linear_curvature_spectra` | 線形曲率 `ζ_lin` のスペクトルと時間発展 |
+| `deltaN` | 非線形 `δN` のスペクトル（最終時刻の `ζ_lin` と比較）、標準化した一点分布、`deltaN_summary.csv` の統計量 |
+| `histogram_<量>` | 場と `ζ_lin` の標準化した一点分布 `(x−μ)/σ`。破線は単位 Gaussian |
+| `slices_<量>` | 2D slice の平均からのずれ（最大 4 時刻） |
+
+存在しない CSV の図は作りません。スペクトルは、全方向がそろった殻 `k_bin ≤ N_L/2` だけを
+描きます（角の殻はモード数が少ないため）。`ζ_lin` の図は初期時刻を除きます。初期時刻では
+平均速度を設定値で与えるので、分母 `Σφ̇²` が意味を持たないためです。描画コードの試験は
+`julia --project=plotting -e "using Pkg; Pkg.test()"` で実行します。
+
 ## 数値規約
 
 - 空間は一辺 `L` の周期立方格子、場配列順序は `(x,y,z,field)` です。
